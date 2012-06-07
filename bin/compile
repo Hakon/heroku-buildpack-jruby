@@ -49,6 +49,7 @@ function get_bundle_cache {
 
 function store_bundle_cache {
   mkdir -p $BUNDLE_CACHE
+  ls -ahl $BUNDLE_CACHE # Debug
   cp -ru $BUNDLE_DIR/* $BUNDLE_CACHE
 }
 
