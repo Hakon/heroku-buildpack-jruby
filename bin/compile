@@ -112,5 +112,5 @@ bundle_install #_with_cache
 
 install_rails_log_stdout
 install_rails3_server_static_assets
-compile_rails3_assets
+#compile_rails3_assets
 
