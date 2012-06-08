@@ -99,7 +99,7 @@ function compile_rails3_assets {
     echo "Running: rake assets:precompile"
 
     cd $BUILD_DIR
-    pwd
+    ls
     bundle exec rake assets:precompile
   fi
 }
