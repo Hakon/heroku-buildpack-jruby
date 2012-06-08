@@ -29,8 +29,8 @@ function download_jruby_and_install_default_gems {
     curl $JRUBY_TAR -s -o - | tar xzf - -C $CACHE_DIR/
     PATH=$CACHE_DIR/jruby-$VERSION/bin:$PATH
 
-    echo "-----> Installing JRuby-OpenSSL, Bundler and Rake"
-    jruby $JRUBY_OPTS -S jgem install jruby-openssl bundler rake | indent 
+    echo "-----> Installing JRuby-OpenSSL and Bundler"
+    jruby $JRUBY_OPTS -S jgem install jruby-openssl bundler | indent 
   fi
 }
 
@@ -98,7 +98,7 @@ function compile_rails3_assets {
   else
     echo "Running: rake assets:precompile with environment $RAILS_ENV"
     cd $BUILD_DIR
-    rake assets:precompile
+    bin/rake assets:precompile
   fi
 }
 
