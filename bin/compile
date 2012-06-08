@@ -100,7 +100,7 @@ function compile_rails3_assets {
     echo "Detected manifest.yml, assuming assets were compiled locally"
   else
     echo "Running: rake assets:precompile"
-
+    bundle install --without development:test --binstubs --deployment
     bin/rake assets:precompile --trace
   fi
 }
