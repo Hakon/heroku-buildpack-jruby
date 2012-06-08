@@ -99,6 +99,7 @@ function compile_rails3_assets {
     echo "Running: rake assets:precompile"
 
     cd $BUILD_DIR
+    bundle list
     env PATH=$PATH:bin bundle exec rake assets:precompile
   fi
 }
