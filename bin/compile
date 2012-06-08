@@ -98,7 +98,7 @@ function compile_rails3_assets {
   else
     echo "Running: rake assets:precompile"
     cd $BUILD_DIR
-    bundle exec rake assets:precompile
+    rake assets:precompile
   fi
 }
 
