@@ -96,10 +96,11 @@ function compile_rails3_assets {
   if [ -f $BUILD_DIR/public/assets/manifest.yml ]; then
     echo "Detected manifest.yml, assuming assets were compiled locally"
   else
-    echo "Running: rake assets:precompile with environment $RAILS_ENV"
+    echo "Running: rake assets:precompile"
 
     cd $BUILD_DIR
-    bin/rake assets:precompile RAILS_GROUPS=assets RAILS_ENV=production
+    pwd
+    bundle exec rake assets:precompile
   fi
 }
 
@@ -112,5 +113,5 @@ bundle_install #_with_cache
 
 install_rails_log_stdout
 install_rails3_server_static_assets
-#compile_rails3_assets
+compile_rails3_assets
 
