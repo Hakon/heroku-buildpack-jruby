@@ -48,8 +48,11 @@ function get_bundle_cache {
 }
 
 function store_bundle_cache {
+  set -x
   mkdir -p $BUNDLE_CACHE
-  cp -ru $BUNDLE_DIR/* $BUNDLE_CACHE
+  pushd $BUNDLE_DIR
+  find . -name .git -prune -o -print0 | cpio -pmd0 $BUNDLE_CACHE
+  popd
 }
 
 function bundle_install {
@@ -98,7 +101,7 @@ function compile_rails3_assets {
   else
     echo "Running: rake assets:precompile"
 
-    env PATH=$PATH:bin bundle exec rake assets:precompile
+    bin/rake assets:precompile --trace
   fi
 }
 
